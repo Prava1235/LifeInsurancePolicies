@@ -27,7 +27,7 @@ public class EmployeePolicies  {
 	@NotNull(message = "Employye policy id is required")
 	@Column(name = "emp_policy_id")
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long empPolicyId;
+	private Integer empPolicyId;
 	@NotNull(message = "premium amount is required")
 	@Column(name = "premium_amount")
 	private double premiumAmount;
@@ -71,11 +71,11 @@ public class EmployeePolicies  {
 	}
 
 
-	public long getEmpPolicyId() {
+	public Integer getEmpPolicyId() {
 		return empPolicyId;
 	}
 
-	public void setEmpPolicyId(long empPolicyId) {
+	public void setEmpPolicyId(Integer empPolicyId) {
 		this.empPolicyId = empPolicyId;
 	}
 

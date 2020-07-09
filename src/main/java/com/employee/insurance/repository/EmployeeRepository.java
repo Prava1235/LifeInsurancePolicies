@@ -7,5 +7,5 @@ import com.employee.insurance.entity.Employee;
 
 @Repository
 public interface EmployeeRepository extends JpaRepository<Employee, Long>{
-
+	Employee findByEmpId(Integer empid);
 }

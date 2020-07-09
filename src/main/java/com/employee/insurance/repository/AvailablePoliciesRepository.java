@@ -7,5 +7,5 @@ import com.employee.insurance.entity.AvailablePolicies;
 
 @Repository
 public interface AvailablePoliciesRepository extends JpaRepository<AvailablePolicies, Long> {
-
+	AvailablePolicies findByPolicyId(Long policyid);
 }

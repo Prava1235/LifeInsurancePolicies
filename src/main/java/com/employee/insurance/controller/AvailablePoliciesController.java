@@ -67,7 +67,7 @@ public class AvailablePoliciesController {
 		return new ResponseEntity<>(availablePoliciesResponseDto, HttpStatus.OK);
 	}
 
-	@ApiOperation("Search insurance policies by policy id")
+	@ApiOperation("Search salient feature of  policies by policy id")
 	@GetMapping("/salientFeatures/{policyId}")
 	public ResponseEntity<AvailablePolicySalientFeatureResDto> getPoliciesSalientFeatursById(
 			@PathVariable("policyId") Long policyId) throws PolicyNotFoundException {
@@ -79,8 +79,8 @@ public class AvailablePoliciesController {
 		return new ResponseEntity<>(availablePolicySalientFeatureResDto, HttpStatus.OK);
 	}
 
-	@ApiOperation("Search insurance policies by policy id")
-	@GetMapping("/Temp/{policyId}")
+	@ApiOperation("Search insurance term and condition of  policies by policy id")
+	@GetMapping("/Term/{policyId}")
 	public ResponseEntity<AvailablePoliciesTermAndConditionDto> getPoliciesTermAndConditionById(
 			@PathVariable("policyId") Long policyId)
 			throws PolicyNotFoundException {
