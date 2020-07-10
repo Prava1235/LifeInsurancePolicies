@@ -1,5 +1,7 @@
 package com.employee.insurance.servicetest;
 
+import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 import java.util.Optional;
@@ -23,7 +25,8 @@ import org.powermock.modules.junit4.PowerMockRunner;
  
 
 import com.employee.insurance.entity.AvailablePolicies;
-
+import com.employee.insurance.entity.EmployeePolicies;
+import com.employee.insurance.entity.SalientFeature;
 import com.employee.insurance.exception.PolicyNotFoundException;
 
 import com.employee.insurance.repository.AvailablePoliciesRepository;
@@ -52,14 +55,59 @@ public class AvailablePoliciesServiceTest {
                 public void testGetPoliciesById_WhenFound() throws PolicyNotFoundException {
 
                                 AvailablePolicies availablePolicies = new AvailablePolicies();
+                                Date date = new Date(System.currentTimeMillis());
+                                List<SalientFeature> salientFeaturesList = new ArrayList<SalientFeature>();
+                                SalientFeature salientFeatures = new SalientFeature();
+                                salientFeatures.setSalientFeatureId(1l);
+                                salientFeatures.setPolicySalientFeature("ABCD");
+                                salientFeaturesList.add(salientFeatures);
+                                
+                                
+                                List<EmployeePolicies> employeePoliciesList = new ArrayList<EmployeePolicies>();
+                                EmployeePolicies employeePolicies = new EmployeePolicies();
+
+                                employeePolicies.setEmpPolicyId(1);
+                                employeePolicies.getPremiumAmount();
+                                employeePolicies.getPolicyNum();
+                                employeePolicies.getEmployee();
+                                employeePolicies.getStartDate();
+                                employeePolicies.getEndDate();
+                                employeePoliciesList.add(employeePolicies);
 
                                 availablePolicies.setPolicyId(1L);
+                                availablePolicies.setActiveStatus(true);
+                                availablePolicies.setEntryAge(5L);
+                                availablePolicies.setMaximumMaturityAge(20L);
+                                availablePolicies.setEndDate(date);
+                                availablePolicies.setStartDate(date);
+                                availablePolicies.setMinimumPremium(1000.00);
+                                availablePolicies.setPolicyDesc("abcd");
+                                availablePolicies.setSalientFeatures(salientFeaturesList);
+                                availablePolicies.setTermAndCondition("abd");
+                                availablePolicies.setPolicyTerm("abcd");
+                                availablePolicies.setEmployeePolicies(employeePoliciesList);
+                                availablePolicies.setMinimumSumAssured(30.00);
+                                
+                                
+                                availablePolicies.getEntryAge();
+                                availablePolicies.getMaximumMaturityAge();
+                                availablePolicies.getEndDate();
+                                availablePolicies.getStartDate();
+                                availablePolicies.getMinimumPremium();
+                                availablePolicies.getPolicyDesc();
+                                availablePolicies.getSalientFeatures();
+                                availablePolicies.getTermAndCondition();
+                                availablePolicies.getPolicyTerm();
+                                availablePolicies.getEmployeePolicies();
+                                availablePolicies.getMinimumSumAssured();
 
                                 Mockito.when(availablePoliciesRepository.findById(1L)).thenReturn(Optional.of(availablePolicies));
 
                                 availablePoliciesService.getPoliciesById(1L);
 
                                 Assert.assertEquals(1, availablePolicies.getPolicyId().intValue());
+                                Assert.assertEquals(1, salientFeatures.getSalientFeatureId().intValue());
+                                Assert.assertEquals("ABCD", salientFeatures.getPolicySalientFeature());
 
                 }
 

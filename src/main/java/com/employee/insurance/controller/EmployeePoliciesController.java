@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +18,7 @@ import com.employee.insurance.dto.EmployeeRequestDto;
 import com.employee.insurance.dto.EmployeeResponseDto;
 import com.employee.insurance.dto.EnrollPolicyDto;
 import com.employee.insurance.entity.EmployeePolicies;
+import com.employee.insurance.entity.TrendDetail;
 import com.employee.insurance.service.EmployeePoliciesService;
 import com.employee.insurance.service.EmployeeService;
 
@@ -37,18 +39,18 @@ public class EmployeePoliciesController {
 
 	@GetMapping("/OverallTrend")
 	@ApiOperation(" Counting Available insurance policies")
-	public ResponseEntity<List<EmployeePolicies>> getPoliciesByCounts() throws Exception {
+	public ResponseEntity<List<TrendDetail>> getPoliciesByCounts() throws Exception {
 		LOGGER.debug("AvailablePoliciesController :: All Policies :: start");
-		List<EmployeePolicies> employeePolicies = (List<EmployeePolicies>) employeePoliciesService.getPolicyHolderByCounts();
+		List<TrendDetail> employeePolicies = (List<TrendDetail>) employeePoliciesService.getPolicyHolderByCounts();
 		LOGGER.debug("AvailablePoliciesController :: All Policies :: end");
 		return new ResponseEntity<>(employeePolicies, HttpStatus.OK);
 	}
 	
-	@GetMapping("/CurrentTrend")
+	@GetMapping("/CurrentTrend/{days}")
 	@ApiOperation(" Counting Available insurance policies")
-	public ResponseEntity<List<EmployeePolicies>> getPoliciesByDays() throws Exception {
+	public ResponseEntity<List<TrendDetail>> getPoliciesByDays(@PathVariable("days") long days) throws Exception {
 		LOGGER.debug("AvailablePoliciesController :: All Policies :: start");
-		List<EmployeePolicies> employeePolicies = (List<EmployeePolicies>) employeePoliciesService.getPolicyHolderByDays();
+		List<TrendDetail> employeePolicies = (List<TrendDetail>) employeePoliciesService.getPolicyHolderByDays(days);
 		LOGGER.debug("AvailablePoliciesController :: All Policies :: end");
 		return new ResponseEntity<>(employeePolicies, HttpStatus.OK);
 	}

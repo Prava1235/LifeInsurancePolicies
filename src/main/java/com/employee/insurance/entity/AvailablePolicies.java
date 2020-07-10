@@ -10,9 +10,6 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
@@ -99,9 +96,7 @@ public class AvailablePolicies  {
 		this.minimumSumAssured = minimumSumAssured;
 	}
 
-	public AvailablePolicies() {
-		// TODO Auto-generated constructor stub
-	}
+	
 
 	public Long getPolicyId() {
 		return policyId;
@@ -173,10 +168,6 @@ public class AvailablePolicies  {
 
 	public void setSalientFeatures(List<SalientFeature> salientFeatures) {
 		this.salientFeatures = salientFeatures;
-	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
 	}
 
 	public Date getStartDate() {

@@ -1,7 +1,5 @@
 package com.employee.insurance.dto;
 
-import java.util.List;
-
 public class AvailablePoliciesResponseDto {
 	private String policyDesc;
 

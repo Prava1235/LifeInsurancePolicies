@@ -23,9 +23,7 @@ public class SalientFeature {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long salientFeatureId;
 
-	public SalientFeature() {
-		// TODO Auto-generated constructor stub
-	}
+	
 
 	public Long getSalientFeatureId() {
 		return salientFeatureId;

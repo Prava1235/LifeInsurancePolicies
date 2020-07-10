@@ -9,24 +9,7 @@ import com.employee.insurance.constants.AppConstants;
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
-	/**
-	 * Handles ProductNotFoundException
-	 * @return String
-	 */
-	@ExceptionHandler(value = ProductNotFoundException.class)
-	public ResponseEntity<String> handleProductNotFoundException() {
-		return new ResponseEntity<>(AppConstants.PRODUCT_NOT_FOUND,HttpStatus.NOT_FOUND);
-	}
-	
-	/**
-	 * Handles UserNotFoundException
-	 * @return String
-	 */
-	@ExceptionHandler(value = UserNotFoundException.class)
-	public ResponseEntity<String> handleUserNotFoundException() {
-		return new ResponseEntity<>(AppConstants.USER_NOT_FOUND,HttpStatus.NOT_FOUND);
-	}
-	
+		
 	/**
 	 * Handles PriceNotFoundException
 	 * @return String

@@ -44,8 +44,12 @@ public class EmployeeServiceTest {
             employee.setEmpId(1);
 
             employee.setEmail("test@test.com");
+            
+            employee.getEmpId();
+            employee.getEname();
+            employee.getEmployeePolicies();
 
-            Mockito.when(employeeRepository.save(employee)).thenReturn(employee);
+            Mockito.when(employeeRepository.save(Mockito.any(Employee.class))).thenReturn(employee);
 
             employeeService.registerEmployee(dto);
 
@@ -59,15 +63,9 @@ public class EmployeeServiceTest {
 
       public void testRegisterEmployee_NotFound() {
 
-            Employee employee = new Employee();
+            Employee employee = new Employee(1,"Test","test@test.com","abcd");
 
             EmployeeRequestDto  dto = new EmployeeRequestDto();
-
-            employee.setEname("Test");
-
-            employee.setEmpId(1);
-
-            employee.setEmail("test@test.com");
 
             Mockito.when(employeeRepository.save(employee)).thenReturn(employee);
 
