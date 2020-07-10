@@ -32,19 +32,19 @@ public class Employee {
 	@NotNull(message = "Employee password is required")
 	private String password;
 
-	public List<EmployeePolicies> getEmployeePolicies() {
+	public List<EmployeePolicy> getEmployeePolicies() {
 		return employeePolicies;
 	}
 
-	public void setEmployeePolicies(List<EmployeePolicies> employeePolicies) {
+	public void setEmployeePolicies(List<EmployeePolicy> employeePolicies) {
 		this.employeePolicies = employeePolicies;
 	}
 
 	@OneToMany(mappedBy = "employee", fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-	private List<EmployeePolicies> employeePolicies;
+	private List<EmployeePolicy> employeePolicies;
 
 	public Employee() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	public Employee(@NotNull(message = "ID is required") Integer empId,

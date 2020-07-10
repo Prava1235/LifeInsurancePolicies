@@ -23,9 +23,7 @@ public class SalientFeature {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long salientFeatureId;
 
-	public SalientFeature() {
-		// TODO Auto-generated constructor stub
-	}
+	
 
 	public Long getSalientFeatureId() {
 		return salientFeatureId;
@@ -43,11 +41,11 @@ public class SalientFeature {
 		this.policySalientFeature = policySalientFeature;
 	}
 
-	public AvailablePolicies getAvailablePolicies() {
+	public AvailablePolicy getAvailablePolicies() {
 		return availablePolicies;
 	}
 
-	public void setAvailablePolicies(AvailablePolicies availablePolicies) {
+	public void setAvailablePolicies(AvailablePolicy availablePolicies) {
 		this.availablePolicies = availablePolicies;
 	}
 
@@ -58,6 +56,6 @@ public class SalientFeature {
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "policy_id")
 	@JsonIgnore
-	private AvailablePolicies availablePolicies;
+	private AvailablePolicy availablePolicies;
 
 }
